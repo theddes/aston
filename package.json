@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "register-service-worker": "^1.0.0",
+    "storyblok-js-client": "^1.0.19",
+    "storyblok-vue": "^1.0.5",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
