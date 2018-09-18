@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     async fetchData () {
-      const { data } = await api.get(`cdn/stories/${this.slug}`)
+      const { data } = await api.get(`cdn/stories/${this.$route.name}`)
       this.content = data.story.content
     }
   }
