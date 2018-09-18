@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     async fetchData () {
-      const { data } = await api.get('cdn/stories/home')
+      const { data } = await api.get(`cdn/stories/${this.$options.name.toLowerCase()}`)
       this.content = data.story.content
     }
   }
