@@ -1,9 +1,11 @@
 import Vue from 'vue'
+import StoryblokVue from 'storyblok-vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
 import './registerServiceWorker'
 
+Vue.use(StoryblokVue)
 Vue.config.productionTip = false
 
 new Vue({

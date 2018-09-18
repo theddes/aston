@@ -1,6 +1,8 @@
 <template>
   <div :class="$options.name">
-    <div v-if="content">
+    <div
+      v-editable="content"
+      v-if="content">
       {{ content.title }}
     </div>
   </div>
@@ -17,14 +19,27 @@ export default {
       content: null
     }
   },
-  created() {
+  created () {
     this.fetchData()
+    if (this.$storyblok) {
+      this.$storyblok.init()
+
+      // Reload the browser if the content
+      // is saved or published in the editor.
+      this.$storyblok.on(['change', 'published'], () => window.location.reload())
+
+      // Live update the content
+      // in the Visual Editor.
+      this.$storyblok.on('input', ({ story }) => {
+        this.content = story.content
+      })
+    }
   },
   methods: {
-    async fetchData() {
+    async fetchData () {
       const { data } = await api.get('cdn/stories/home')
       this.content = data.story.content
-    },
-  },
+    }
+  }
 }
 </script>
