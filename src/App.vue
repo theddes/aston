@@ -1,30 +1,17 @@
 <template>
   <div id="app" :class="$options.name">
-    <header :class="`${$options.name}__header`">
-      <router-link :class="`${$options.name}__logo`" to="/">
-        Aston
-      </router-link>
-
-      <nav :class="`${$options.name}__nav`">
-        <router-link :class="`${$options.name}__navLink`" to="/">
-          Home
-        </router-link> |
-        <router-link :class="`${$options.name}__navLink`" to="/about">
-          About
-        </router-link>
-      </nav>
-    </header>
-
-    <router-view :class="`${$options.name}__main`"/>
-
-    <footer :class="`${$options.name}__footer`">
-      &copy; Aston
-    </footer>
+    <site-header />
+    <router-view />
+    <site-footer />
   </div>
 </template>
 
 <script>
+import siteHeader from '@/components/SiteHeader.vue'
+import siteFooter from '@/components/SiteFooter.vue'
+
 export default {
-  name: 'App',
+  name: 'aston',
+  components: {siteHeader, siteFooter}
 }
 </script>

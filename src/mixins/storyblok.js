@@ -3,6 +3,7 @@ import api from '../utils/api'
 export default {
   data () {
     return {
+      blok: this.$options.name.toLowerCase(),
       content: null
     }
   },
@@ -21,7 +22,7 @@ export default {
   },
   methods: {
     async fetchData () {
-      const { data } = await api.get(`cdn/stories/${this.$route.name}`)
+      const { data } = await api.get(`cdn/stories/${this._data.blok}`)
       this.content = data.story.content
     }
   }
