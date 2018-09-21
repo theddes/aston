@@ -1,6 +1,6 @@
 <template>
   <header role="banner" id="site-header" :class="`${$options.name}`">
-    <router-link to="/">
+    <router-link to="/about">
       <h1 :class="`${$options.name}__logo`" v-editable="content" v-if="content">
         <img
           :src="$img(content.image, 250, 79)"
